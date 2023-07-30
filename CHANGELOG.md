@@ -72,6 +72,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - This release does not include pulling images from a custom registry.
 - This release does not include centralised logging.
 
+
 [v2.4.1]: https://github.com/snyk/code-local-engine/releases/tag/v2.4.1
 [v2.4.0]: https://github.com/snyk/code-local-engine/releases/tag/v2.4.0
 [v2.3.0]: https://github.com/snyk/code-local-engine/releases/tag/v2.3.0
