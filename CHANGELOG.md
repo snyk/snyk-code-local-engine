@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ability to configure self managed secrets
 - Partial standardisation of service base images (more to follow)
 - Partial migration of services not to run as root anymore (more to follow)
-- Updates core Snyk Code services to include new rulesets
+- Updates core Snyk Code services to include new rule sets
 
 ### Removed
 
