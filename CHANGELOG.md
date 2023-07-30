@@ -5,44 +5,55 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-
 ## [v2.4.1]
-2023-07-14
+#### 2023-07-14
+
 ### Added
 - The inbuilt NGINX Ingress Controller is now disabled by default, and is separate from the Ingress resource. This enables customers to re-use their own instance of NGINX Ingress Controller without manually manipulating the Chart.
     - To enable the NGINX Ingress Controller, set `global.ingressController.enabled: true`.
+
 ## [v2.4.0]
-2023-07-13
+#### 2023-07-13
+
 ### Added
 - Support for custom image registries:
   - Authenticated/unauthenticated private registries
   - Custom image pull secrets
+
 ## [v2.3.0]
-2023-07-12
+#### 2023-07-12
+
 ### Added
 - IDE Scans for VSCode v1.21 and higher
+
 ## [v2.2.3]
-2023-06-15
+#### 2023-06-15
 ### Added
 - Update of scm-meld to support custom CA override
 - Update of files-bundle-store to improve CPU usage, and concurrency
+
 ## [v2.2.2]
-2023-06-13
+#### 2023-06-13
+
 ### Fixed
 - Suggest has been upgraded with some key bug fixes:
   - Better queueing mechanism to reduce stuck analyses
   - Introduced better analyses timeout mechanisms
   - Suggest runs as non-root
+
 ## [v2.2.1]
-2023-06-9
+#### 2023-06-9
+
 ### Added
 - Migrates additional services to run as non-root
+  
 ### Fixed
 - Inconsistency when deploying Local Engine to a custom namespace
 - Webhook creation for PR checks
+
 ## [v2.2.0]
-2023-05-12
+#### 2023-05-12
+
 ### Added
 
 - Modular service deployment, only deploy the services needed for the intended use case
@@ -55,8 +66,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - We removed CRDs and ClusterRoles - no more cluster-wide access needed.
+
 ## [v2.0.0] 
-2023-04-20
+#### 2023-04-20
+
 ### Added
 
 - v2.0.0 includes the “new” Snyk Code stack, giving customers parity between Snyk SaaS and Local Engine environments.
