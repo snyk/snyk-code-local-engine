@@ -5,8 +5,9 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v2.2.0] - 2023-05-12
+## [v2.2.0]
 
+2023-05-12
 ### Added
 
 - Modular service deployment, only deploy the services needed for the intended use case
@@ -20,8 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - We removed CRDs and ClusterRoles - no more cluster-wide access needed.
 
-## [v2.0.0] - 2023-04-20
-
+## [v2.0.0]
+ 
+2023-04-20
 ### Added
 
 - v2.0.0 includes the “new” Snyk Code stack, giving customers parity between Snyk SaaS and Local Engine environments.
