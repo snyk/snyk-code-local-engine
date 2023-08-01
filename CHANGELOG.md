@@ -28,10 +28,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v2.2.3
 #### 2023-06-15
+
 ### Added
 - Update of scm-meld to support custom CA override
 - Update of files-bundle-store to improve CPU usage, and concurrency
-
+  
 ## v2.2.2
 #### 2023-06-13
 
@@ -40,9 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Better queueing mechanism to reduce stuck analyses
   - Introduced better analyses timeout mechanisms
   - Suggest runs as non-root
-
+  
 ## v2.2.1
-#### 2023-06-9
+#### 2023-06-09
 
 ### Added
 - Migrates additional services to run as non-root
@@ -67,12 +68,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - We removed CRDs and ClusterRoles - no more cluster-wide access needed.
 
-## v2.0.0 
+## v2.0.0
 #### 2023-04-20
 
 ### Added
 
-- v2.0.0 includes the “new” Snyk Code stack, giving customers parity between Snyk SaaS and Local Engine environments.
+- Includes the “new” Snyk Code stack, giving customers parity between Snyk SaaS and Local Engine environments.
 - We host the Helm Chart on Dockerhub - customers can pull the Helm Chart with the same credentials for v1.Documentation and the values-customer-settings.yaml are still shared manually with the customer.
 
 ### Removed
