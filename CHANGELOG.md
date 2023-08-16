@@ -5,6 +5,22 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v
+#### 2023-08-16
+
+### Added
+- Snyk Code Local Engine now supports custom CAs towards SCMs via `global.privateCaCert.*` values.
+- A subset of available Helm values are listed in documentation
+- A subset of available Helm values are subject to input validation
+- The IDE has been added to the Architecture diagram
+
+#### Changed
+- NGINX Ingress documentation has been updated to better reflect usage and deployment options
+- The healthcheck calls made by `service-health-aggregator` are now cached
+
+### Deprecated
+- The `global.proxy.cert` and `global.proxy.useCustomCert` values are both _deprecated_. See documentation for `global.privateCaCert.*` values
+
 ## v2.4.1
 #### 2023-07-14
 
