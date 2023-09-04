@@ -5,6 +5,20 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.5.0
+#### 2023-09-04
+
+### Added
+- Allows python projects that use poetry to be scanned
+
+### Changed
+- Updated the `broker-client` to [v4.161.0](https://github.com/snyk/broker/releases/tag/v4.161.0)
+- Updated Snyk Code services for latest analysis rules
+- Changed database infrastructure for `scm-bundle-store` from a sharded MongoDB cluster to a single MongoDB instance
+
+### Fixed
+- Fixed an upgrade/stability issue with MongoDB by migrating to a single MongoDB instance
+
 ## v2.4.2
 #### 2023-08-17
 
@@ -16,10 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Changed
 - NGINX Ingress documentation has been updated to better reflect usage and deployment options
-- The healthcheck calls made by `service-health-aggregator` are now cached
 
 ### Deprecated
-- The `global.proxy.cert` and `global.proxy.useCustomCert` values are both _deprecated_. See documentation for `global.privateCaCert.*` values
+- The `global.proxy.cert` and `global.proxy.useCustomCert` values are both _deprecated_.
 
 ## v2.4.1
 #### 2023-07-14
