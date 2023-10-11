@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated documentation for JetBrains IDE
 
 ## v2.6.0
+
 #### 2023-09-18
 
 ### Added
