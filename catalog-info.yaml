@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: snyk-code-local-engine-changelog
+  annotations:
+    github.com/project-slug: snyk/snyk-code-local-engine-changelog
+    github.com/team-slug: snyk/nebula
+spec:
+  type: documentation
+  lifecycle: '-'
+  owner: nebula
