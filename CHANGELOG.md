@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Introduced a new `largeManifestFileRule` value, gives the option to add rule for fetching large manifest file. Avaliable for Github and Github Enterprise only.
+- Caching mechanism for IDE scans by the new `suggest-sticky` component.
 
 ### Changed
 
