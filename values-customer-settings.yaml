@@ -1,0 +1,169 @@
+## @section Enable Snyk Code Services
+## REQUIRED: Configure services to deploy ##
+
+## @param tags.scm Enable services required for SCM Imports
+## @param tags.scmPrCheck Enable services required for SCM PR Checks
+## @param tags.cli Enable services required for CLI
+## @param tags.ide Enable services required for IDE
+##
+tags:
+  scm: false
+  scmPrCheck: false
+  cli: false
+  ide: false
+
+## @section Global Parameters
+
+## @param global.imagePullSecret.enabled Disable if an Image Pull Secret is not required
+## @param global.imagePullSecret.name The name of the Image Pull Secret to be created
+## @param global.imagePullSecret.credentials.username A Username to authenticate against a Docker registry
+## @param global.imagePullSecret.credentials.password A Password to authenticate against a Docker registry
+global:
+  ### OPTIONAL: Image pull secrets ###
+  imagePullSecret:
+    enabled: true # Set to false if an image pull secret is not required
+    name: &imagePullSecretName "snyk-code-local-engine-pull-secret"
+    credentials:
+      # Contact your Snyk representative to get credentials
+      username: ""
+      password: ""
+
+## @param global.imagePullSecrets Set to '[]' if your image registry does not require authentication, or '[ `<existing-secret-name>` ] if re-using credentials that already exist on your Kubernetes cluster
+## This secret must be within the same namespace as the Snyk Code Local Engine deployment
+  imagePullSecrets: [ *imagePullSecretName ] 
+
+## @param global.imageRegistry [string] Optionally define a private image registry address if using non-default image registries (hostname/port only, no protocol)
+  imageRegistry: ""
+
+## @param global.localEngineUrl [string] The full URL including schema that points to the cluster ingress. Required for CLI/PR Checks.
+  localEngineUrl: ""
+
+## @param global.proxy.enabled Set to true to enable outbound proxy support
+## @param global.proxy.url Proxy URL, including schema: http[s]://username:password@proxy:port
+## @param global.proxy.tlsRejectUnauthorized Set to true to trust any and all certificates presented by the proxy
+## @param global.proxy.usePrivateCaCert Set to true to enable private CA support for the proxy - see global.privateCaCert
+  proxy:
+    enabled: false
+    url: ""
+    tlsRejectUnauthorized: false
+    usePrivateCaCert: false
+
+## @param global.privateCaCert.enabled Set to true to enable trust of private CA certificate(s) towards the SCM and/or proxy
+## @param global.privateCaCert.cert Multiline string containing any/all certificates for connections to the SCM and/or proxy in PEM format ()
+## @param global.privateCaCert.certMountPath A fully qualified path to mount the certificate
+  privateCaCert:
+    enabled: false
+    # Example:
+    # cert: |
+    # -----BEGIN CERTIFICATE-----
+    # ....
+    # -----END CERTIFICATE-----
+    cert: ""
+    certMountPath: "/etc/config"
+
+## @param global.ingress.enabled Set to true to create an Ingress for CLI/PR Checks
+## @param global.ingress.host Optionally define the host associated with this ingress - otherwise leave blank
+## @param global.ingress.ingressClassName Optionally define the Ingress Class for this ingress - otherwise leave blank
+## @param global.ingress.tls.enabled Set to true to enable TLS on the in-built ingress
+## @param global.ingress.tls.secret.name Either specify the name of a pre-existing Kubernetes secret containing TLS secrets, or leave blank to create a new secret
+## @param global.ingress.tls.secret.key [string] The TLS key for TLS encryption, in PEM format
+## @param global.ingress.tls.secret.cert [string] The TLS certificate for TLS encryption, in PEM format
+  ingress:
+    enabled: false
+    host: ""
+    ingressClassName: ""
+    tls:
+      enabled: false
+      secret:
+        name: "{{ .Release.Name }}-ingress-tls"
+        key: |
+          # Should start with -----BEGIN PRIVATE KEY-----
+
+        cert: |
+          # Should start with -----BEGIN CERTIFICATE-----
+
+  localEngine:
+## @param global.localEngine.redisSecretName Optionally specify the name of a pre-existing Kubernetes secret containing Redis authentication data
+    # ensure secret contains the key REDIS_PASSWORD
+    # ensure key value is base64 encoded
+    redisSecretName: ""
+
+## @param global.localEngine.sessionSecretName Optionally specify the name of a pre-existing Kubernetes secret containing session secret data
+    # ensure secret contains the key SESSION_SECRET
+    # ensure key value is base64 encoded
+    sessionSecretName: ""
+
+## @param global.localEngine.mongodbSecretName Optionally specify the name of a pre-existing Kubernetes secret containing MongoDB authentication data
+    # only required if using SCM integration
+    # ensure secret contains the mongodb-root-password key
+    # ensure key values are base64 encoded
+    mongodbSecretName: ""
+
+### OPTIONAL: Configure Broker settings for SCM integration ###
+## @section Broker Client parameters (any SCM flows only)
+## @param broker-client.brokerToken Broker Token is a value from Snyk. Get this from the Snyk integration settings page or your Snyk Representative
+broker-client:
+  brokerToken: ""
+
+## @param broker-client.brokerType Define the SCM Broker will connect to
+  #   brokerType is used to define the Source Control that you are connecting to.
+  #   Allowed values for brokerType:
+  #   Github.com: github-com
+  #   Github Enterprise: github-enterprise
+  #   Bitbucket: bitbucket-server
+  #   Gitlab: gitlab
+  #   Azure Repos: azure-repos
+  brokerType: ""
+
+  ## Github Enterprise ##
+
+## @param broker-client.githubHost GHE URL - Ex: your.ghe.domain.com (do not prepend HTTPS) - For GHE Cloud use api.github.com
+  githubHost: ""
+
+## @param broker-client.githubApi GHE API Address - do not prepend HTTPS
+  githubApi: ""
+
+## @param broker-client.githubGraphQl GHE Graph QL Address - do not prepend HTTPS
+  githubGraphQl: ""
+
+## @param broker-client.githubToken Github Token - for GitHub or GitHub Enterprise
+  githubToken: ""
+
+  ##### Bitbucket Server #####
+
+## @param broker-client.bitbucketUsername Bitbucket Server Username
+  bitbucketUsername: ""
+
+## @param broker-client.bitbucketPassword Bitbucket Server Password
+  bitbucketPassword: ""
+
+## @param broker-client.bitbucketHost Bitbucket Server Host URL - do not prepend HTTPS
+  bitbucketHost: ""
+
+  ##### GitLab #####
+
+## @param broker-client.gitlabHost GitLab URL - do not prepend HTTPS
+  gitlabHost: ""
+
+## @param broker-client.gitlabToken GitLab Token
+  gitlabToken: ""
+
+  ##### Azure Repos #####
+## @param broker-client.azureReposOrg Azure Repos Organization
+  azureReposOrg: ""
+
+## @param broker-client.azureReposHost Azure Repos Hostname - do not prepend HTTPS
+  azureReposHost: ""
+
+## @param broker-client.azureReposToken Azure Repos Token
+  azureReposToken: ""
+
+## @param broker-client.codeSnippet.enabled Set to enable viewing of analysis results in the Snyk UI. Caution - will allow Snyk servers to fetch source code files
+  codeSnippet:
+    enabled: false
+
+## @param broker-client.largeManifestFileRule.enabled Set to enable in order to be able to fetch large manifest files (> 1Mb). Avaliable only for 'github' and 'github-enterprise' 
+  largeManifestFileRule:
+    enabled: false
+## @param broker-client.brokerServerUrl Modify if using Snyk Private Cloud/a different Snyk tenant.
+  brokerServerUrl: "https://broker.snyk.io"

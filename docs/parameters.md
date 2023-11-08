@@ -23,7 +23,7 @@ The available Helm Parameters are listed below.
 | `global.imagePullSecret.credentials.password` | A Password to authenticate against a Docker registry                                                                                                                       | `""`                                     |
 | `global.imagePullSecrets`                     | Set to '[]' if your image registry does not require authentication, or '[ `<existing-secret-name>` ] if re-using credentials that already exist on your Kubernetes cluster | `["snyk-code-local-engine-pull-secret"]` |
 | `global.imageRegistry`                        | Optionally define a private image registry address if using non-default image registries (hostname/port only, no protocol)                                                 | `""`                                     |
-| `global.localEngineUrl`                       | The full URL including schema that points to the cluster ingress. Required for CLI/PR Checks.                                                                            | `""`                                     |
+| `global.localEngineUrl`                       | The full URL including schema that points to the cluster ingress. Required for CLI/PR Checks.                                                                              | `""`                                     |
 | `global.proxy.enabled`                        | Set to true to enable outbound proxy support                                                                                                                               | `false`                                  |
 | `global.proxy.url`                            | Proxy URL, including schema: http[s]://username:password@proxy:port                                                                                                        | `""`                                     |
 | `global.proxy.tlsRejectUnauthorized`          | Set to true to trust any and all certificates presented by the proxy                                                                                                       | `false`                                  |
@@ -44,22 +44,22 @@ The available Helm Parameters are listed below.
 
 ### Broker Client parameters (any SCM flows only)
 
-| Name                                | Description                                                                                                            | Value   |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------- |
-| `broker-client.brokerToken`         | Broker Token is a value from Snyk. Get this from the Snyk integration settings page or your Snyk Representative        | `""`    |
-| `broker-client.brokerType`          | Define the SCM Broker will connect to                                                                                  | `""`    |
-| `broker-client.githubHost`          | GHE URL - Ex: your.ghe.domain.com (do not prepend HTTPS) - For GHE Cloud use api.github.com                            | `""`    |
-| `broker-client.githubApi`           | GHE API Address - do not prepend HTTPS                                                                                 | `""`    |
-| `broker-client.githubGraphQl`       | GHE Graph QL Address - do not prepend HTTPS                                                                            | `""`    |
-| `broker-client.githubToken`         | Github Token - for GitHub or GitHub Enterprise                                                                         | `""`    |
-| `broker-client.bitbucketUsername`   | Bitbucket Server Username                                                                                              | `""`    |
-| `broker-client.bitbucketPassword`   | Bitbucket Server Password                                                                                              | `""`    |
-| `broker-client.bitbucketHost`       | Bitbucket Server Host URL - do not prepend HTTPS                                                                       | `""`    |
-| `broker-client.gitlabHost`          | GitLab URL - do not prepend HTTPS                                                                                      | `""`    |
-| `broker-client.gitlabToken`         | GitLab Token                                                                                                           | `""`    |
-| `broker-client.azureReposOrg`       | Azure Repos Organization                                                                                               | `""`    |
-| `broker-client.azureReposHost`      | Azure Repos Hostname - do not prepend HTTPS                                                                            | `""`    |
-| `broker-client.azureReposToken`     | Azure Repos Token                                                                                                      | `""`    |
-| `broker-client.codeSnippet.enabled` | Set to enable viewing of analysis results in the Snyk UI. Caution - will allow Snyk servers to fetch source code files | `false` |
-| `broker-client.largeManifestFileRule.enabled` | Set to enable in order to be able to fetch large manifest files (> 1Mb). Avaliable only for 'github' and 'github-enterprise' | `false` |
-| `broker-client.brokerServerUrl`     | Required if using Snyk Private Cloud                                                                                   | `""`    |
+| Name                                          | Description                                                                                                                   | Value                    |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `broker-client.brokerToken`                   | Broker Token is a value from Snyk. Get this from the Snyk integration settings page or your Snyk Representative               | `""`                     |
+| `broker-client.brokerType`                    | Define the SCM Broker will connect to                                                                                         | `""`                     |
+| `broker-client.githubHost`                    | GHE URL - Ex: your.ghe.domain.com (do not prepend HTTPS) - For GHE Cloud use api.github.com                                   | `""`                     |
+| `broker-client.githubApi`                     | GHE API Address - do not prepend HTTPS                                                                                        | `""`                     |
+| `broker-client.githubGraphQl`                 | GHE Graph QL Address - do not prepend HTTPS                                                                                   | `""`                     |
+| `broker-client.githubToken`                   | Github Token - for GitHub or GitHub Enterprise                                                                                | `""`                     |
+| `broker-client.bitbucketUsername`             | Bitbucket Server Username                                                                                                     | `""`                     |
+| `broker-client.bitbucketPassword`             | Bitbucket Server Password                                                                                                     | `""`                     |
+| `broker-client.bitbucketHost`                 | Bitbucket Server Host URL - do not prepend HTTPS                                                                              | `""`                     |
+| `broker-client.gitlabHost`                    | GitLab URL - do not prepend HTTPS                                                                                             | `""`                     |
+| `broker-client.gitlabToken`                   | GitLab Token                                                                                                                  | `""`                     |
+| `broker-client.azureReposOrg`                 | Azure Repos Organization                                                                                                      | `""`                     |
+| `broker-client.azureReposHost`                | Azure Repos Hostname - do not prepend HTTPS                                                                                   | `""`                     |
+| `broker-client.azureReposToken`               | Azure Repos Token                                                                                                             | `""`                     |
+| `broker-client.codeSnippet.enabled`           | Set to enable viewing of analysis results in the Snyk UI. Caution - will allow Snyk servers to fetch source code files        | `false`                  |
+| `broker-client.largeManifestFileRule.enabled` | Set to enable in order to be able to fetch large manifest files (> 1Mb). Avaliable only for 'github' and 'github-enterprise'  | `false`                  |
+| `broker-client.brokerServerUrl`               | Modify if using Snyk Private Cloud/a different Snyk tenant.                                                                   | `https://broker.snyk.io` |
