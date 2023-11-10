@@ -2,10 +2,14 @@
 
 Snyk Code Local Engine exposes useful endpoints to interrogate the status of your installation.
 
-## `/status`
+## `/` or `/status`
 
-The `/status` endpoint allows the `service-health-aggregator` pod to report on the status of your installation.
+Query either `/` or `/status` to report on the status of your installation:
 
+```bash
+curl http[s]://<LOCAL_ENGINE_URL>/
+```
+or:
 ```bash
 curl http[s]://<LOCAL_ENGINE_URL>/status
 ```
@@ -25,7 +29,7 @@ The following message is returned if all pods and services are running:
 
 ### Unhealthy Response
 
-A JSON object is returned with details of the unhealthy workloads. If a `503` is returned, the `service-health-aggregator` pod is unable to start correctly.
+A JSON object is returned with details of the unhealthy workloads. If response code `503` is returned, the `service-health-aggregator` pod may be unable to start correctly.
 
 ## `/broker/healthcheck`
 
