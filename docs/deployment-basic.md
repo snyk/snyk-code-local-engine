@@ -139,11 +139,10 @@ Use the following steps in order to work with your private registry:
   ├── scm-bundle-store/
   ├── sast-analysis-api/
   ├── files-bundle-store/
-  ├── scm-meld/
   ├── code-pr-check-service/
+  ├── service-health-aggregator/
   envoy/
   ├── envoyproxy/
-  mongo/
   bitnami/
   ├── mongodb/
   ├── redis/

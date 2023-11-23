@@ -5,6 +5,24 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.7.4" />
+
+## v2.7.4
+
+#### 2023-11-23
+
+### Changed
+
+- Corrected the list of images under the Private Registry section
+
+### Removed
+
+- The `scm-meld` component is no longer required and has been removed
+
+### Fixed
+
+- Resolved an "Unauthorized" failure during IDE and CLI scans occurring after a proxy CA certificate change. The fix ensures that Snyk Code Local Engine properly picks up the new configuration when redeployed.
+
 <a id="v2.7.3" />
 
 ## v2.7.3
