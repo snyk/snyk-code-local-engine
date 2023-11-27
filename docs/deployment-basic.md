@@ -133,16 +133,16 @@ Use the following steps in order to work with your private registry:
 
   ```
   snyk/
-  ├── broker-client/
-  ├── deeproxy/
-  ├── deepcode-suggest_v6/
-  ├── scm-bundle-store/
-  ├── sast-analysis-api/
-  ├── files-bundle-store/
+  ├── broker/
   ├── code-pr-check-service/
+  ├── deepcode-suggest_v6/
+  ├── deeproxy/
+  ├── files-bundle-store/
+  ├── sast-analysis-api/
+  ├── scm-bundle-store/
   ├── service-health-aggregator/
-  envoy/
-  ├── envoyproxy/
+  envoyproxy/
+  ├── envoy/
   bitnami/
   ├── mongodb/
   ├── redis/
