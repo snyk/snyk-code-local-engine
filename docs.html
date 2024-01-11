@@ -771,6 +771,29 @@ Login<span class="w"> </span>suceeded
 <p>Depending on your Kubernetes Cluster you may wish to use a <a href="#networking">custom Ingress Controller and/or a custom Ingress template</a>.</p>
 <p><em><strong>JetBrains IDE limitation:</strong>
 To ensure Snyk Code scans are directed to SCLE please set up your SCLE organization ID in the JetBrains IDE settings and restart the IDE. Having to change organization only applies if Snyk Code without using the SCLE was used beforehand.</em></p>
+<h3 id="deployment-basic-setting-the-snyk-tenant">Setting the Snyk Tenant<a class="headerlink" href="#deployment-basic-setting-the-snyk-tenant" title="Permanent link">¶</a></h3>
+<p>By default, Snyk Code Local Engine will connect to the US Snyk Tenant. </p>
+<p>If using an alternative tenant, replace any occurrence of <code>snyk.io</code> to the geographic alternative in this documentation.</p>
+<p>To use an alternative tenant, configure the following in <code>values-customer-settings.yaml</code>:</p>
+<h4 id="deployment-basic-eu-tenant">EU Tenant<a class="headerlink" href="#deployment-basic-eu-tenant" title="Permanent link">¶</a></h4>
+<div class="language-yaml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">broker-client</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">brokerServerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">"https://broker.eu.snyk.io"</span>
+<span class="nt">deeproxy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">verificationDomain</span><span class="p">:</span><span class="w"> </span><span class="s">"https://api.eu.snyk.io/v1/validate/token/snyk-to-deepcode-proxy-validation"</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h4 id="deployment-basic-au-tenant">AU Tenant<a class="headerlink" href="#deployment-basic-au-tenant" title="Permanent link">¶</a></h4>
+<div class="language-yaml highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">broker-client</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">brokerServerUrl</span><span class="p">:</span><span class="w"> </span><span class="s">"https://broker.au.snyk.io"</span>
+<span class="nt">deeproxy</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">verificationDomain</span><span class="p">:</span><span class="w"> </span><span class="s">"https://api.au.snyk.io/v1/validate/token/snyk-to-deepcode-proxy-validation"</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><em>Note: See <a href="https://docs.snyk.io/more-info/data-residency-at-snyk">Data Residency At Snyk</a> for other information (CLI, IDE, Web URL).</em></p>
 <h2 id="deployment-basic-installing-snyk-code-local-engine-with-helm">Installing Snyk Code Local Engine with Helm<a class="headerlink" href="#deployment-basic-installing-snyk-code-local-engine-with-helm" title="Permanent link">¶</a></h2>
 <p>The following should be used to install Snyk Code Local Engine for the first time on a Kubernetes cluster:</p>
 <div class="language-bash highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>helm<span class="w"> </span>upgrade<span class="w"> </span>--wait<span class="w"> </span>&lt;DEPLOYMENT_NAME&gt;<span class="w"> </span>./snyk-code-local-engine-&lt;version&gt;.tgz<span class="w"> </span>-i<span class="w"> </span>-f<span class="w"> </span>values-customer-settings.yaml<span class="w"> </span>-n<span class="w"> </span>&lt;NAMESPACE&gt;
@@ -869,7 +892,6 @@ bitnami/
 <p>Make sure you set the <code>global.imageRegistry</code> value in <code>values-customer-settings.yaml</code> to your private registry include any namespace paths above those mentioned previously. For example: <code>global.imageRegistry: my.private.registry.io/parent/path</code> will pull snyk images from <code>my.private.registry.io/parent/path/snyk</code> and so on.</p>
 </li>
 </ol>
-<p>The note formatting used elsewhere is:</p>
 <p><em>Note: If your private registry requires authentication, ensure to set credentials as describe in <code>values-customer-settings.yaml</code>.</em></p>
 <p>After setting previous steps Helm will now use images from the specified registry.</p>
 <h2 id="deployment-basic-what-next">What Next?<a class="headerlink" href="#deployment-basic-what-next" title="Permanent link">¶</a></h2>
@@ -1112,7 +1134,7 @@ bitnami/
 <hr/>
 <h2 id="networking-outbound-proxy-support">Outbound Proxy Support<a class="headerlink" href="#networking-outbound-proxy-support" title="Permanent link">¶</a></h2>
 <p><em>Note: Snyk Code Local Engine does not support proxied connections to an external SCM. The following section is for proxying outbound traffic to Snyk domains only.</em></p>
-<p>Components in Snyk Code Local Engine will make TLS-secured outbound connections to Snyk domains (<code>app.snyk.io</code> and <code>broker.snyk.io</code>) to:</p>
+<p>Components in Snyk Code Local Engine will make TLS-secured outbound connections to Snyk domains (<code>app.snyk.io</code> and <code>broker.snyk.io</code> for the default US tenant) to:</p>
 <ul>
 <li>Authenticate users of the CLI and IDE.</li>
 <li>Make analysis results available on the Snyk Web UI.</li>
@@ -1160,7 +1182,7 @@ bitnami/
 </ul>
 <h3 id="networking-further-proxy-configuration">Further Proxy Configuration<a class="headerlink" href="#networking-further-proxy-configuration" title="Permanent link">¶</a></h3>
 <ul>
-<li>If your proxy uses whitelisting, ensure the <code>app.snyk.io</code> and <code>broker.snyk.io</code> (if using broker) domains are added.</li>
+<li>If your proxy uses whitelisting, ensure the appropriate domain for your Snyk tenant are added - for example, <code>app.snyk.io</code> and <code>broker.snyk.io</code> (if using broker) for the default US tenant.</li>
 <li>If your proxy certificate and/or authentication information changes, update the value(s) above and re-apply Helm. Any running pods that use the proxy will be recreated with the new proxy configuration.</li>
 </ul>
 <hr/>
@@ -1590,6 +1612,15 @@ snyk-code<span class="w"> </span>---&gt;<span class="w"> </span>API<span class="
 <p>All notable changes to Code Local Engine project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<p><a id="v2.7.8"></a></p><a id="v2.7.8">
+</a><h2 id="changelog-v278"><a id="v2.7.8">v2.7.8</a><a class="headerlink" href="#changelog-v278" title="Permanent link">¶</a></h2>
+<h4 id="changelog-2024-01-11">2024-01-11<a class="headerlink" href="#changelog-2024-01-11" title="Permanent link">¶</a></h4>
+<h3 id="changelog-changed">Changed<a class="headerlink" href="#changelog-changed" title="Permanent link">¶</a></h3>
+<ul>
+<li>Documentation updated to include alternative tenant setup</li>
+<li>Updates to Snyk images for new rulesets</li>
+<li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.171.9">v4.171.9</a></li>
+</ul>
 <p><a id="v2.7.7"></a></p><a id="v2.7.7">
 </a><h2 id="changelog-v277"><a id="v2.7.7">v2.7.7</a><a class="headerlink" href="#changelog-v277" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-12-07">2023-12-07<a class="headerlink" href="#changelog-2023-12-07" title="Permanent link">¶</a></h4>
@@ -1606,7 +1637,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>CronJobs to clean up older/expired data in MongoDB</li>
 </ul>
-<h3 id="changelog-changed">Changed<a class="headerlink" href="#changelog-changed" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_1">Changed<a class="headerlink" href="#changelog-changed_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>Minimum Kubernetes version is now 1.21</li>
 </ul>
@@ -1620,7 +1651,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p><a id="v2.7.4"></a></p><a id="v2.7.4">
 </a><h2 id="changelog-v274"><a id="v2.7.4">v2.7.4</a><a class="headerlink" href="#changelog-v274" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-23">2023-11-23<a class="headerlink" href="#changelog-2023-11-23" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_1">Changed<a class="headerlink" href="#changelog-changed_1" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_2">Changed<a class="headerlink" href="#changelog-changed_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>Corrected the list of images under the Private Registry section</li>
 </ul>
@@ -1635,14 +1666,14 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p><a id="v2.7.3"></a></p><a id="v2.7.3">
 </a><h2 id="changelog-v273"><a id="v2.7.3">v2.7.3</a><a class="headerlink" href="#changelog-v273" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-10">2023-11-10<a class="headerlink" href="#changelog-2023-11-10" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_2">Changed<a class="headerlink" href="#changelog-changed_2" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_3">Changed<a class="headerlink" href="#changelog-changed_3" title="Permanent link">¶</a></h3>
 <ul>
 <li>The <code>/status</code> endpoint is now also presented on <code>/</code> for better compatibility with Load Balancer health checks</li>
 </ul>
 <p><a id="v2.7.2"></a></p><a id="v2.7.2">
 </a><h2 id="changelog-v272"><a id="v2.7.2">v2.7.2</a><a class="headerlink" href="#changelog-v272" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-08">2023-11-08<a class="headerlink" href="#changelog-2023-11-08" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_3">Changed<a class="headerlink" href="#changelog-changed_3" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_4">Changed<a class="headerlink" href="#changelog-changed_4" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.169.2">v4.169.2</a></li>
 <li>Updates to latest Snyk Code rules</li>
@@ -1655,7 +1686,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p><a id="v2.7.1"></a></p><a id="v2.7.1">
 </a><h2 id="changelog-v271"><a id="v2.7.1">v2.7.1</a><a class="headerlink" href="#changelog-v271" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-10-17">2023-10-17<a class="headerlink" href="#changelog-2023-10-17" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_4">Changed<a class="headerlink" href="#changelog-changed_4" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_5">Changed<a class="headerlink" href="#changelog-changed_5" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the architectural diagram with <code>suggest-sticky</code> component</li>
 </ul>
@@ -1667,13 +1698,13 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Introduced a new <code>largeManifestFileRule</code> value, gives the option to add rule for fetching large manifest file. Avaliable for Github and Github Enterprise only.</li>
 <li>Caching mechanism for IDE scans by the new <code>suggest-sticky</code> component.</li>
 </ul>
-<h3 id="changelog-changed_5">Changed<a class="headerlink" href="#changelog-changed_5" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_6">Changed<a class="headerlink" href="#changelog-changed_6" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated architecture diagram with new internal-proxy connectivity</li>
 </ul>
 <h2 id="changelog-v261">v2.6.1<a class="headerlink" href="#changelog-v261" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-09-20">2023-09-20<a class="headerlink" href="#changelog-2023-09-20" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_6">Changed<a class="headerlink" href="#changelog-changed_6" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_7">Changed<a class="headerlink" href="#changelog-changed_7" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated Ingress template to include the <code>host</code> key if specified</li>
 <li>Updated documentation for JetBrains IDE</li>
@@ -1684,7 +1715,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li><code>internal-proxy</code> component (based on <code>envoy</code>) replaces routes previously defined by the Ingress resource</li>
 </ul>
-<h3 id="changelog-changed_7">Changed<a class="headerlink" href="#changelog-changed_7" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_8">Changed<a class="headerlink" href="#changelog-changed_8" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.161.0">v4.163.0</a></li>
 <li>Ingress resource simplified - defies one route (<code>/</code>) and removes the need for request rewriting/regex capture groups</li>
@@ -1705,7 +1736,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>Allows python projects that use poetry to be scanned by Snyk Open Source through the broker</li>
 </ul>
-<h3 id="changelog-changed_8">Changed<a class="headerlink" href="#changelog-changed_8" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_9">Changed<a class="headerlink" href="#changelog-changed_9" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.161.0">v4.161.0</a></li>
 <li>Updated Snyk Code services for latest analysis rules</li>
@@ -1724,7 +1755,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>A subset of available Helm values are subject to input validation</li>
 <li>The IDE has been added to the Architecture diagram</li>
 </ul>
-<h4 id="changelog-changed_9">Changed<a class="headerlink" href="#changelog-changed_9" title="Permanent link">¶</a></h4>
+<h4 id="changelog-changed_10">Changed<a class="headerlink" href="#changelog-changed_10" title="Permanent link">¶</a></h4>
 <ul>
 <li>NGINX Ingress documentation has been updated to better reflect usage and deployment options</li>
 </ul>
@@ -1812,7 +1843,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>We removed CRDs and ClusterRoles - no more cluster-wide access needed.</li>
 </ul>
-<h3 id="changelog-changed_10">Changed<a class="headerlink" href="#changelog-changed_10" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_11">Changed<a class="headerlink" href="#changelog-changed_11" title="Permanent link">¶</a></h3>
 <ul>
 <li>This release does not include PR Checks. CLI scans/ Imports are currently supported.</li>
 <li>This release does not include pulling images from a custom registry.</li>
@@ -1868,4 +1899,4 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
       
     
   
-</body></html><!--Generated by HTMLArk 2023-12-07 16:52:50.152835. Original URL site/print_page/index.html-->
+</body></html><!--Generated by HTMLArk 2024-01-11 18:13:17.219091. Original URL site/print_page/index.html-->

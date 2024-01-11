@@ -5,6 +5,18 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.7.8" />
+
+## v2.7.8
+
+#### 2024-01-11
+
+### Changed
+
+- Documentation updated to include alternative tenant setup
+- Updates to Snyk images for new rulesets
+- Updated the `broker-client` to [v4.171.9](https://github.com/snyk/broker/releases/tag/v4.171.9)
+
 <a id="v2.7.7" />
 
 ## v2.7.7
