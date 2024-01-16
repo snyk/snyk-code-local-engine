@@ -1612,10 +1612,22 @@ snyk-code<span class="w"> </span>---&gt;<span class="w"> </span>API<span class="
 <p>All notable changes to Code Local Engine project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<p><a id="v2.7.9"></a></p><a id="v2.7.9">
+</a><h2 id="changelog-v279"><a id="v2.7.9">v2.7.9</a><a class="headerlink" href="#changelog-v279" title="Permanent link">¶</a></h2>
+<h4 id="changelog-2024-01-16">2024-01-16<a class="headerlink" href="#changelog-2024-01-16" title="Permanent link">¶</a></h4>
+<h3 id="changelog-fixed">Fixed<a class="headerlink" href="#changelog-fixed" title="Permanent link">¶</a></h3>
+<ul>
+<li>Resolved a bug preventing cleanup jobs from running successfully</li>
+</ul>
+<h3 id="changelog-changed">Changed<a class="headerlink" href="#changelog-changed" title="Permanent link">¶</a></h3>
+<ul>
+<li>Updates to Snyk images for updated rulesets</li>
+<li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.172.2">v4.172.2</a></li>
+</ul>
 <p><a id="v2.7.8"></a></p><a id="v2.7.8">
 </a><h2 id="changelog-v278"><a id="v2.7.8">v2.7.8</a><a class="headerlink" href="#changelog-v278" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2024-01-11">2024-01-11<a class="headerlink" href="#changelog-2024-01-11" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed">Changed<a class="headerlink" href="#changelog-changed" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_1">Changed<a class="headerlink" href="#changelog-changed_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>Documentation updated to include alternative tenant setup</li>
 <li>Updates to Snyk images for new rulesets</li>
@@ -1624,7 +1636,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <p><a id="v2.7.7"></a></p><a id="v2.7.7">
 </a><h2 id="changelog-v277"><a id="v2.7.7">v2.7.7</a><a class="headerlink" href="#changelog-v277" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-12-07">2023-12-07<a class="headerlink" href="#changelog-2023-12-07" title="Permanent link">¶</a></h4>
-<h3 id="changelog-fixed">Fixed<a class="headerlink" href="#changelog-fixed" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_1">Fixed<a class="headerlink" href="#changelog-fixed_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>Snyk Code rules updated</li>
 <li>Suggest services updated JDK to remove vulnerabilities</li>
@@ -1637,21 +1649,21 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>CronJobs to clean up older/expired data in MongoDB</li>
 </ul>
-<h3 id="changelog-changed_1">Changed<a class="headerlink" href="#changelog-changed_1" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_2">Changed<a class="headerlink" href="#changelog-changed_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>Minimum Kubernetes version is now 1.21</li>
 </ul>
 <p><a id="v2.7.5"></a></p><a id="v2.7.5">
 </a><h2 id="changelog-v275"><a id="v2.7.5">v2.7.5</a><a class="headerlink" href="#changelog-v275" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-27">2023-11-27<a class="headerlink" href="#changelog-2023-11-27" title="Permanent link">¶</a></h4>
-<h3 id="changelog-fixed_1">Fixed<a class="headerlink" href="#changelog-fixed_1" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_2">Fixed<a class="headerlink" href="#changelog-fixed_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>Fixed non-reachable vulnerabilities in the scm-bundle-store and mongodb components.</li>
 </ul>
 <p><a id="v2.7.4"></a></p><a id="v2.7.4">
 </a><h2 id="changelog-v274"><a id="v2.7.4">v2.7.4</a><a class="headerlink" href="#changelog-v274" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-23">2023-11-23<a class="headerlink" href="#changelog-2023-11-23" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_2">Changed<a class="headerlink" href="#changelog-changed_2" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_3">Changed<a class="headerlink" href="#changelog-changed_3" title="Permanent link">¶</a></h3>
 <ul>
 <li>Corrected the list of images under the Private Registry section</li>
 </ul>
@@ -1659,34 +1671,34 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>The <code>scm-meld</code> component is no longer required and has been removed</li>
 </ul>
-<h3 id="changelog-fixed_2">Fixed<a class="headerlink" href="#changelog-fixed_2" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_3">Fixed<a class="headerlink" href="#changelog-fixed_3" title="Permanent link">¶</a></h3>
 <ul>
 <li>Resolved an "Unauthorized" failure during IDE and CLI scans occurring after a proxy CA certificate change. The fix ensures that Snyk Code Local Engine properly picks up the new configuration when redeployed.</li>
 </ul>
 <p><a id="v2.7.3"></a></p><a id="v2.7.3">
 </a><h2 id="changelog-v273"><a id="v2.7.3">v2.7.3</a><a class="headerlink" href="#changelog-v273" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-10">2023-11-10<a class="headerlink" href="#changelog-2023-11-10" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_3">Changed<a class="headerlink" href="#changelog-changed_3" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_4">Changed<a class="headerlink" href="#changelog-changed_4" title="Permanent link">¶</a></h3>
 <ul>
 <li>The <code>/status</code> endpoint is now also presented on <code>/</code> for better compatibility with Load Balancer health checks</li>
 </ul>
 <p><a id="v2.7.2"></a></p><a id="v2.7.2">
 </a><h2 id="changelog-v272"><a id="v2.7.2">v2.7.2</a><a class="headerlink" href="#changelog-v272" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-11-08">2023-11-08<a class="headerlink" href="#changelog-2023-11-08" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_4">Changed<a class="headerlink" href="#changelog-changed_4" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_5">Changed<a class="headerlink" href="#changelog-changed_5" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.169.2">v4.169.2</a></li>
 <li>Updates to latest Snyk Code rules</li>
 <li>Updates to Snyk Code services</li>
 </ul>
-<h3 id="changelog-fixed_3">Fixed<a class="headerlink" href="#changelog-fixed_3" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_4">Fixed<a class="headerlink" href="#changelog-fixed_4" title="Permanent link">¶</a></h3>
 <ul>
 <li>Fixed outbound CA support for SCM when a proxy is not utilized</li>
 </ul>
 <p><a id="v2.7.1"></a></p><a id="v2.7.1">
 </a><h2 id="changelog-v271"><a id="v2.7.1">v2.7.1</a><a class="headerlink" href="#changelog-v271" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-10-17">2023-10-17<a class="headerlink" href="#changelog-2023-10-17" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_5">Changed<a class="headerlink" href="#changelog-changed_5" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_6">Changed<a class="headerlink" href="#changelog-changed_6" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the architectural diagram with <code>suggest-sticky</code> component</li>
 </ul>
@@ -1698,13 +1710,13 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Introduced a new <code>largeManifestFileRule</code> value, gives the option to add rule for fetching large manifest file. Avaliable for Github and Github Enterprise only.</li>
 <li>Caching mechanism for IDE scans by the new <code>suggest-sticky</code> component.</li>
 </ul>
-<h3 id="changelog-changed_6">Changed<a class="headerlink" href="#changelog-changed_6" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_7">Changed<a class="headerlink" href="#changelog-changed_7" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated architecture diagram with new internal-proxy connectivity</li>
 </ul>
 <h2 id="changelog-v261">v2.6.1<a class="headerlink" href="#changelog-v261" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-09-20">2023-09-20<a class="headerlink" href="#changelog-2023-09-20" title="Permanent link">¶</a></h4>
-<h3 id="changelog-changed_7">Changed<a class="headerlink" href="#changelog-changed_7" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_8">Changed<a class="headerlink" href="#changelog-changed_8" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated Ingress template to include the <code>host</code> key if specified</li>
 <li>Updated documentation for JetBrains IDE</li>
@@ -1715,12 +1727,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li><code>internal-proxy</code> component (based on <code>envoy</code>) replaces routes previously defined by the Ingress resource</li>
 </ul>
-<h3 id="changelog-changed_8">Changed<a class="headerlink" href="#changelog-changed_8" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_9">Changed<a class="headerlink" href="#changelog-changed_9" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.161.0">v4.163.0</a></li>
 <li>Ingress resource simplified - defies one route (<code>/</code>) and removes the need for request rewriting/regex capture groups</li>
 </ul>
-<h3 id="changelog-fixed_4">Fixed<a class="headerlink" href="#changelog-fixed_4" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_5">Fixed<a class="headerlink" href="#changelog-fixed_5" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated documentation for proxy and custom Certificate Authority support for better clarity</li>
 <li>Specify the <code>brokerServerUrl</code> by default in the <code>values-customer-settings.yaml</code> file</li>
@@ -1736,13 +1748,13 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>Allows python projects that use poetry to be scanned by Snyk Open Source through the broker</li>
 </ul>
-<h3 id="changelog-changed_9">Changed<a class="headerlink" href="#changelog-changed_9" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_10">Changed<a class="headerlink" href="#changelog-changed_10" title="Permanent link">¶</a></h3>
 <ul>
 <li>Updated the <code>broker-client</code> to <a href="https://github.com/snyk/broker/releases/tag/v4.161.0">v4.161.0</a></li>
 <li>Updated Snyk Code services for latest analysis rules</li>
 <li>Changed database infrastructure for <code>scm-bundle-store</code> from a sharded MongoDB cluster to a single MongoDB instance</li>
 </ul>
-<h3 id="changelog-fixed_5">Fixed<a class="headerlink" href="#changelog-fixed_5" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_6">Fixed<a class="headerlink" href="#changelog-fixed_6" title="Permanent link">¶</a></h3>
 <ul>
 <li>Fixed an upgrade/stability issue with MongoDB by migrating to a single MongoDB instance</li>
 </ul>
@@ -1755,7 +1767,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>A subset of available Helm values are subject to input validation</li>
 <li>The IDE has been added to the Architecture diagram</li>
 </ul>
-<h4 id="changelog-changed_10">Changed<a class="headerlink" href="#changelog-changed_10" title="Permanent link">¶</a></h4>
+<h4 id="changelog-changed_11">Changed<a class="headerlink" href="#changelog-changed_11" title="Permanent link">¶</a></h4>
 <ul>
 <li>NGINX Ingress documentation has been updated to better reflect usage and deployment options</li>
 </ul>
@@ -1797,7 +1809,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h2 id="changelog-v222">v2.2.2<a class="headerlink" href="#changelog-v222" title="Permanent link">¶</a></h2>
 <h4 id="changelog-2023-06-13">2023-06-13<a class="headerlink" href="#changelog-2023-06-13" title="Permanent link">¶</a></h4>
-<h3 id="changelog-fixed_6">Fixed<a class="headerlink" href="#changelog-fixed_6" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_7">Fixed<a class="headerlink" href="#changelog-fixed_7" title="Permanent link">¶</a></h3>
 <ul>
 <li>Suggest has been upgraded with some key bug fixes:<ul>
 <li>Better queueing mechanism to reduce stuck analyses</li>
@@ -1812,7 +1824,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>Migrates additional services to run as non-root</li>
 </ul>
-<h3 id="changelog-fixed_7">Fixed<a class="headerlink" href="#changelog-fixed_7" title="Permanent link">¶</a></h3>
+<h3 id="changelog-fixed_8">Fixed<a class="headerlink" href="#changelog-fixed_8" title="Permanent link">¶</a></h3>
 <ul>
 <li>Inconsistency when deploying Local Engine to a custom namespace</li>
 <li>Webhook creation for PR checks</li>
@@ -1843,7 +1855,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>We removed CRDs and ClusterRoles - no more cluster-wide access needed.</li>
 </ul>
-<h3 id="changelog-changed_11">Changed<a class="headerlink" href="#changelog-changed_11" title="Permanent link">¶</a></h3>
+<h3 id="changelog-changed_12">Changed<a class="headerlink" href="#changelog-changed_12" title="Permanent link">¶</a></h3>
 <ul>
 <li>This release does not include PR Checks. CLI scans/ Imports are currently supported.</li>
 <li>This release does not include pulling images from a custom registry.</li>
@@ -1899,4 +1911,4 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
       
     
   
-</body></html><!--Generated by HTMLArk 2024-01-11 18:13:17.219091. Original URL site/print_page/index.html-->
+</body></html><!--Generated by HTMLArk 2024-01-16 12:44:29.481242. Original URL site/print_page/index.html-->
