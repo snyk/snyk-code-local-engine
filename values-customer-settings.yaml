@@ -167,3 +167,5 @@ broker-client:
     enabled: false
 ## @param broker-client.brokerServerUrl Modify if using Snyk Private Cloud/a different Snyk tenant.
   brokerServerUrl: "https://broker.snyk.io"
+deeproxy:
+  verificationEndpoint: "https://api.eu.snyk.io/v1/validate/token/snyk-to-deepcode-proxy-validation"
