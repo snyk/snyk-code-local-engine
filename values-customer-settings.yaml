@@ -99,6 +99,12 @@ global:
     # ensure key values are base64 encoded
     mongodbSecretName: ""
 
+### OPTIONAL: Configure Deeproxy settings for EU/AU Snyk Tenants ###
+## @section Deeproxy parameters (EU/AU Snyk Tenants only)
+## @param deeproxy.verificationEndpoint Optionally specify the geographically-appropriate endpoint. Set to US tenant by default
+deeproxy:
+  verificationEndpoint: "https://snyk.io/api/v1/validate/token/snyk-to-deepcode-proxy-validation"
+
 ### OPTIONAL: Configure Broker settings for SCM integration ###
 ## @section Broker Client parameters (any SCM flows only)
 ## @param broker-client.brokerToken Broker Token is a value from Snyk. Get this from the Snyk integration settings page or your Snyk Representative
@@ -162,8 +168,14 @@ broker-client:
   codeSnippet:
     enabled: false
 
-## @param broker-client.largeManifestFileRule.enabled Set to enable in order to be able to fetch large manifest files (> 1Mb). Avaliable only for 'github' and 'github-enterprise' 
+## @param broker-client.largeManifestFileRule.enabled Set to enable in order to be able to fetch large manifest files (> 1Mb). Available only for 'github' and 'github-enterprise' 
   largeManifestFileRule:
     enabled: false
 ## @param broker-client.brokerServerUrl Modify if using Snyk Private Cloud/a different Snyk tenant.
   brokerServerUrl: "https://broker.snyk.io"
+
+## @section SCM-specific configuration
+## @param scm-bundle-store.server.useTokenAuth Set to true if your SCM requires additional header-based authentication.
+scm-bundle-store:
+  server:
+    useTokenAuth: false

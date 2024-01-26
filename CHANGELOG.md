@@ -5,6 +5,28 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.7.10" />
+
+## v2.7.10
+
+#### 2024-01-26
+
+### Added
+
+- `scm-bundle-store.server.useTokenAuth` for compatibility with self-hosted Azure DevOps Server
+
+### Fixed
+
+- Corrected documentation for using EU or AU Snyk tenants with Snyk Code Local Engine
+- Resolved a bug that caused git requests to Azure DevOps Server to fail
+
+### Changed
+
+- Snyk Code rules updated
+- Introduced additional validation rules for EU or AU Snyk tenant usage
+- Updates the default Snyk API domain from `https://snyk.io` to `https://api.snyk.io`
+- Updated the `broker-client` to [v4.172.6](https://github.com/snyk/broker/releases/tag/v4.172.6)
+
 <a id="v2.7.9" />
 
 ## v2.7.9
