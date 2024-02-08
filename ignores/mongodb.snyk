@@ -1,0 +1,33 @@
+version: v1.25.0
+ignore:
+  # bitnami/mongodb:x.y.z-debian-11
+
+  SNYK-DEBIAN11-CURL-3320493:
+    - '*':
+        reason: Curl CLI is not used directly, sequential mode is not used
+        expires: 2024-11-27T12:00:00.000Z
+        created: 2023-11-27T14:24:21.962Z
+
+  SNYK-DEBIAN11-ZLIB-6008961:
+    - '*':
+        reason: Minizip is not used
+        expires: 2024-11-27T12:00:00.000Z
+        created: 2023-11-27T14:24:21.962Z
+
+  SNYK-DEBIAN11-CURL-3179181:
+    - '*':
+        reason: Curl CLI is not used directly, no IDN hostnames or user-provided host names are used.
+        expires: 2024-11-27T12:00:00.000Z
+        created: 2023-11-27T14:24:21.962Z
+
+  SNYK-DEBIAN11-CURL-3066040:
+    - '*':
+        reason: Curl CLI is not used directly, no IDN hostnames or user-provided host names are used.
+        expires: 2024-11-27T12:00:00.000Z
+        created: 2023-11-27T14:24:21.962Z
+
+  SNYK-DEBIAN11-NGHTTP2-5953384:
+    - '*':
+        reason: No HTTP/2 is exposed, neither to internal services, nor to external users.
+        expires: 2024-11-27T12:00:00.000Z
+        created: 2023-11-27T14:24:21.962Z

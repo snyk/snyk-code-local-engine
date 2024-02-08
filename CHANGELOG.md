@@ -5,6 +5,29 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.7.11" />
+
+## v2.7.11
+
+#### 2024-02-08
+
+### Added
+
+- Added versioned snyk ignore (.snyk) files. These files detail any vulnerabilities within Snyk Code Local Engine that are either unreachable or otherwise not valid.
+
+### Fixed
+
+- Resolved a Helm validation bug for Broker
+
+### Changed
+
+- Snyk Code rules updated
+- Updated `broker-client` to [v4.174.1](https://github.com/snyk/broker/releases/tag/v4.174.1)
+
+### Removed
+
+- `scm-bundle-store.server.useTokenAuth` is now deprecated - repository detection should ensure the presence of required headers for self-hosted Azure DevOps/TFS servers. This value now has no effect.
+
 <a id="v2.7.10" />
 
 ## v2.7.10

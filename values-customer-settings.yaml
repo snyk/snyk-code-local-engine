@@ -173,9 +173,3 @@ broker-client:
     enabled: false
 ## @param broker-client.brokerServerUrl Modify if using Snyk Private Cloud/a different Snyk tenant.
   brokerServerUrl: "https://broker.snyk.io"
-
-## @section SCM-specific configuration
-## @param scm-bundle-store.server.useTokenAuth Set to true if your SCM requires additional header-based authentication.
-scm-bundle-store:
-  server:
-    useTokenAuth: false
