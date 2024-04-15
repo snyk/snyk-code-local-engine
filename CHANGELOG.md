@@ -5,6 +5,22 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.8.1" />
+
+## v2.8.1
+
+#### 2024-04-15
+
+### Fixed
+
+- Updated values-customer-settings.yaml file with new settings for Universal Broker
+
+### Changed
+
+- Updated MongoDB image to Debian 12 version
+- Updated ignores for MongoDB
+- Updated `broker-client` to  [4.181.1](https://github.com/snyk/broker/releases/tag/v4.181.1)
+
 <a id="v2.8.0" />
 
 ## v2.8.0

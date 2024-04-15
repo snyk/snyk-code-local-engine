@@ -119,9 +119,40 @@ broker-client:
   #   Bitbucket: bitbucket-server
   #   Gitlab: gitlab
   #   Azure Repos: azure-repos
+  #   Universal: universal
   brokerType: ""
 
-  ## Github Enterprise ##
+  ##### Universal #####
+  ## @param broker-client.universalBrokerConnections A map of Universal Broker client connections
+  universalBrokerConnections: {}
+  # myGithubEnterpriseConnection:
+  #   type: github-enterprise
+  #   brokerToken: <broker-token>
+  #   githubHost: <your-ghe-host>
+  #   auth: <your-ghe-pat>
+  # myGithubConnection:
+  #   type: github-com
+  #   brokerToken: <broker-token>
+  #   auth: <your-gh-pat>
+  # myBitbucketConnection:
+  #   type: bitbucket-server
+  #   brokerToken: <broker-token>
+  #   auth: <your-bb-password>
+  #   bitbucketUsername: <your-bb-user>
+  #   bitbucketHost: <your-bb-host>
+  # myGitlabConnection:
+  #   type: gitlab
+  #   brokerToken: <broker-token>
+  #   auth: <your-gl-token>
+  #   gitlabHost: <your-gl-host>
+  # myAzureReposConnection:
+  #   type: azure-repos
+  #   brokerToken: <broker-token>
+  #   azureReposOrg: <your-azure-org>
+  #   azureReposHost: <your-azure-host>
+  #   auth: <your-azure-repos-token>
+
+  ##### Github Enterprise #####
 
 ## @param broker-client.githubHost GHE URL - Ex: your.ghe.domain.com (do not prepend HTTPS) - For GHE Cloud use api.github.com
   githubHost: ""
@@ -168,8 +199,15 @@ broker-client:
   codeSnippet:
     enabled: false
 
-## @param broker-client.largeManifestFileRule.enabled Set to enable in order to be able to fetch large manifest files (> 1Mb). Available only for 'github' and 'github-enterprise' 
+## @param broker-client.largeManifestFileRule.enabled Set to enable in order to be able to fetch large manifest files (> 1Mb). Available only for 'github' and 'github-enterprise' broker types/connections
   largeManifestFileRule:
     enabled: false
 ## @param broker-client.brokerServerUrl Modify if using Snyk Private Cloud/a different Snyk tenant.
   brokerServerUrl: "https://broker.snyk.io"
+
+## @param broker-client.highAvailabilityMode.enabled Set to true for High Availability Broker. Will take effect with 2, 3 or 4 replicas of Broker
+  highAvailabilityMode:
+    enabled: false
+
+## @param broker-client.replicaCount The number of Broker Clients to run. Set if using High Availability Broker (maximum 4 replicas)
+  replicaCount: 1
