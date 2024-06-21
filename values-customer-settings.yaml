@@ -64,6 +64,7 @@ global:
 ## @param global.ingress.enabled Set to true to create an Ingress for CLI/PR Checks
 ## @param global.ingress.host Optionally define the host associated with this ingress - otherwise leave blank
 ## @param global.ingress.ingressClassName Optionally define the Ingress Class for this ingress - otherwise leave blank
+## @param global.ingress.annotations Optionally define any annotations to add to the ingress - otherwise leave blank
 ## @param global.ingress.tls.enabled Set to true to enable TLS on the in-built ingress
 ## @param global.ingress.tls.secret.name Either specify the name of a pre-existing Kubernetes secret containing TLS secrets, or leave blank to create a new secret
 ## @param global.ingress.tls.secret.key [string] The TLS key for TLS encryption, in PEM format
@@ -72,10 +73,11 @@ global:
     enabled: false
     host: ""
     ingressClassName: ""
+    annotations: {}
     tls:
       enabled: false
       secret:
-        name: "{{ .Release.Name }}-ingress-tls"
+        name: ""
         key: |
           # Should start with -----BEGIN PRIVATE KEY-----
 
@@ -117,6 +119,7 @@ broker-client:
   #   Github.com: github-com
   #   Github Enterprise: github-enterprise
   #   Bitbucket: bitbucket-server
+  #   Bitbucket Server Bearer Auth: bitbucket-server-bearer-auth
   #   Gitlab: gitlab
   #   Azure Repos: azure-repos
   #   Universal: universal
@@ -176,6 +179,9 @@ broker-client:
 
 ## @param broker-client.bitbucketHost Bitbucket Server Host URL - do not prepend HTTPS
   bitbucketHost: ""
+
+## @param broker-client.bitbucketToken Bitbucket Server Personal Access Token
+  bitbucketToken: ""
 
   ##### GitLab #####
 

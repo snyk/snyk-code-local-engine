@@ -5,6 +5,26 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.8.2" />
+
+## v2.8.2
+
+#### 2024-06-21
+
+### Added
+
+- Support for Personal Access Token in Bitbucket Server
+
+### Fixed
+
+- Resolved an ingress deployment failure when TLS secret name is provided. The fix ensures that Snyk Code Local Engine can now correctly use a pre-existing TLS secret for the certificate and key material when specified
+- Corrected Broker behaviour when encountering non-ASCII characters in payloads
+
+### Changed
+
+- Updated `broker-client` to [4.190.3](https://github.com/snyk/broker/releases/tag/v4.190.3)
+- Update Snyk Code services with latest rulesets
+
 <a id="v2.8.1" />
 
 ## v2.8.1
@@ -19,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated MongoDB image to Debian 12 version
 - Updated ignores for MongoDB
-- Updated `broker-client` to  [4.181.1](https://github.com/snyk/broker/releases/tag/v4.181.1)
+- Updated `broker-client` to [4.181.1](https://github.com/snyk/broker/releases/tag/v4.181.1)
 
 <a id="v2.8.0" />
 
