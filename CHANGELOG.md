@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Resolved an ingress deployment failure when TLS secret name is provided. The fix ensures that Snyk Code Local Engine can now correctly use a pre-existing TLS secret for the certificate and key material when specified
 - Corrected Broker behaviour when encountering non-ASCII characters in payloads
+- Resolves some C++ analyses reporting all issues on line 1
 
 ### Changed
 
