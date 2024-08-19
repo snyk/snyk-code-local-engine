@@ -5,6 +5,33 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.9.0" />
+
+## v2.9.0
+
+#### 2024-08-19
+
+### Added
+
+- Included `.snyk` ignore file for Minio
+- Add Snyk Code Local Engine documentation as a pdf
+
+### Changed
+
+- `broker-client` now deploys as a statefulset to increase stability when running in HA mode
+- Updated `scm-bundle-store` to use Minio instead of MongoDB for backend storage
+- `global.localEngine.mongodbSecretName` is deprecated, replaced by `global.localEngine.s3SecretName` and `global.localEngine.jwtSecretName`.
+- Updated `broker-client` to [4.193.4](https://github.com/snyk/broker/releases/tag/v4.193.4)
+
+### Removed
+
+- References to the MongoDB image are removed
+
+### Fixed
+
+- Removed the deprecated form of `deeproxy.verificationEndpoint` from `values-customer-settings.yaml`, using `api.snyk.io` instead
+- Added `broker-client.brokerDispatcherUrl` to `values-customer-settings.yaml` for High Availability Broker
+
 <a id="v2.8.2" />
 
 ## v2.8.2

@@ -95,17 +95,23 @@ global:
     # ensure key value is base64 encoded
     sessionSecretName: ""
 
-## @param global.localEngine.mongodbSecretName Optionally specify the name of a pre-existing Kubernetes secret containing MongoDB authentication data
+## @param global.localEngine.s3SecretName Optionally specify the name of a pre-existing Kubernetes secret containing S3 authentication data
     # only required if using SCM integration
-    # ensure secret contains the mongodb-root-password key
+    # ensure secret contains the root-user, root-password, name and region keys
     # ensure key values are base64 encoded
-    mongodbSecretName: ""
+    s3SecretName: ""
+
+## @param global.localEngine.jwtSecretName Optionally specify the name of a pre-existing Kubernetes secret containing S3 encryption data
+    # only required if using SCM integration
+    # ensure secret contains the key jwtSecretKey
+    # ensure key values are base64 encoded
+    jwtSecretName: ""
 
 ### OPTIONAL: Configure Deeproxy settings for EU/AU Snyk Tenants ###
 ## @section Deeproxy parameters (EU/AU Snyk Tenants only)
 ## @param deeproxy.verificationEndpoint Optionally specify the geographically-appropriate endpoint. Set to US tenant by default
 deeproxy:
-  verificationEndpoint: "https://snyk.io/api/v1/validate/token/snyk-to-deepcode-proxy-validation"
+  verificationEndpoint: "https://api.snyk.io/v1/validate/token/snyk-to-deepcode-proxy-validation"
 
 ### OPTIONAL: Configure Broker settings for SCM integration ###
 ## @section Broker Client parameters (any SCM flows only)
@@ -214,6 +220,9 @@ broker-client:
 ## @param broker-client.highAvailabilityMode.enabled Set to true for High Availability Broker. Will take effect with 2, 3 or 4 replicas of Broker
   highAvailabilityMode:
     enabled: false
+
+## @param broker-client.brokerDispatcherUrl Modify if using Snyk Private Cloud/a different Snyk tenant. Required if `highAvailabilityMode.enabled=true`.
+  brokerDispatcherUrl: "https://api.snyk.io"
 
 ## @param broker-client.replicaCount The number of Broker Clients to run. Set if using High Availability Broker (maximum 4 replicas)
   replicaCount: 1
