@@ -4,8 +4,8 @@ metadata:
   name: snyk-code-local-engine
   annotations:
     github.com/project-slug: snyk/snyk-code-local-engine
-    github.com/team-slug: snyk/nebula
+    github.com/team-slug: snyk/hybrid
 spec:
   type: documentation
   lifecycle: '-'
-  owner: nebula
+  owner: hybrid
