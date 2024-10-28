@@ -5,6 +5,27 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.10.0" />
+
+## v2.10.0
+
+#### 2024-10-28
+
+### Added
+
+- `broker-client` supports the [GitHub Server App](https://docs.snyk.io/scm-ide-and-ci-cd-integrations/snyk-scm-integrations/github-server-app) integration type - this functionality is in Closed Beta. Discuss with your Snyk representative for enablement.
+- New documentation to support configuration of GitHub Server App connections with Snyk Code Local Engine
+
+### Fixed
+
+- Corrected `github-com` to `github` when specifying a Universal Broker connection to `github.com`
+- Removed the `ephemeral-storage` limit for `scm-bundle-store`. This prevents pods that were previously being replaced by Kubernetes when exceeding `ephemeral-storage` limits remaining until cluster-level garbage collection occurs, keeping health checks accurate.
+
+### Changed
+
+- Snyk Code rules updated
+- Updated `broker-client` to [4.196.7](https://github.com/snyk/broker/releases/tag/v4.196.7)
+
 <a id="v2.9.0" />
 
 ## v2.9.0
