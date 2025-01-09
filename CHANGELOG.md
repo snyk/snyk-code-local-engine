@@ -5,6 +5,26 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.11.0" />
+
+## v2.11.0
+
+#### 2025-01-09
+
+### Changed
+
+- Snyk Code rules updated
+- Updated `broker-client` to [4.203.4](https://github.com/snyk/broker/releases/tag/v4.203.4)
+- Update routing to handle Code PR checks in `sast-analysis-api` instead of `code-pr-check-service`. The `code-pr-check-service` has been made redundant and is pending removal.
+
+### Removed
+
+- The `broker-client` no longer supports body logging (`broker-client.logEnableBody`). This value is deprecated, and has no effect if specified.
+
+### Fixed
+
+- `scm-bundle-store` and `minio` images upgraded to resolve a vulnerability in the [Golang SSH package](https://security.snyk.io/vuln/SNYK-GOLANG-GOLANGORGXCRYPTOSSH-8496611). This vulnerability was not reachable in SCLE.
+
 <a id="v2.10.0" />
 
 ## v2.10.0
