@@ -42,11 +42,13 @@ global:
 ## @param global.proxy.url Proxy URL, including schema: http[s]://username:password@proxy:port
 ## @param global.proxy.tlsRejectUnauthorized Set to true to trust any and all certificates presented by the proxy
 ## @param global.proxy.usePrivateCaCert Set to true to enable private CA support for the proxy - see global.privateCaCert
+## @param global.proxy.noProxyHosts Provide a comma separated list of hostnames. Required when Broker Client is running in universal mode, a proxy is used, _and_ when `broker-client.skipRemoteConfig` is `false`.
   proxy:
     enabled: false
     url: ""
     tlsRejectUnauthorized: false
     usePrivateCaCert: false
+    noProxyHosts: ""
 
 ## @param global.privateCaCert.enabled Set to true to enable trust of private CA certificate(s) towards the SCM and/or proxy
 ## @param global.privateCaCert.cert Multiline string containing any/all certificates for connections to the SCM and/or proxy in PEM format ()
@@ -132,7 +134,8 @@ broker-client:
   brokerType: ""
 
   ##### Universal #####
-  ## @param broker-client.universalBrokerConnections A map of Universal Broker client connections
+  ##### Local Config #####
+  ## @param broker-client.universalBrokerConnections A map of Universal Broker client connections. Ignored if `broker-client.skipRemoteConfig` is `false`.
   universalBrokerConnections: {}
   # myGithubEnterpriseConnection:
   #   type: github-enterprise
@@ -161,6 +164,30 @@ broker-client:
   #   azureReposHost: <your-azure-host>
   #   auth: <your-azure-repos-token>
 
+  ##### Remote Config #####
+
+  ## @param broker-client.skipRemoteConfig Set to `false` to fetch configuration from the Snyk Platform
+  skipRemoteConfig: true
+
+  ## @param broker-client.brokerPlatformCredentials A map of Universal Broker platform credentials, containing clientId and clientSecret. Ignored if `broker-client.skipRemoteConfig` is `true`.
+  # e.g.
+  # brokerPlatformCredentials:
+  #  myBrokerClient:
+  #    clientId: <client-id>
+  #    clientSecret: <client-secret>
+
+  brokerPlatformCredentials: {}
+
+  ## @param broker-client.brokerDeployments A map of Universal Broker deployments, containing a brokerPlatformRef, a deploymentId, and one or more Credential References. Ignored if `broker-client.skipRemoteConfig` is `true`.
+  # e.g.
+  # brokerDeployments:
+  #   myBrokerDeployment:
+  #     brokerPlatformRef: myBrokerClient
+  #     credentialReferences:
+  #        MY_GITHUB_TOKEN: <your-gh-pat>
+  #        AZURE_REPOS_TOKEN: <your-azure-repos-token>
+  brokerDeployments: {}
+  
   ##### Github Enterprise #####
 
 ## @param broker-client.githubHost GHE URL - Ex: your.ghe.domain.com (do not prepend HTTPS) - For GHE Cloud use api.github.com

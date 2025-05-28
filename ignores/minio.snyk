@@ -4,5 +4,5 @@ ignore:
   SNYK-DEBIAN12-ZLIB-6008963:
     - '*':
         reason: Minizip is not used
-        expires: 2025-06-28T16:00:00.000Z
-        created: 2024-06-28T16:00:00.000Z
+        expires: 2025-06-28T16:00:00Z
+        created: 2024-06-28T16:00:00Z
