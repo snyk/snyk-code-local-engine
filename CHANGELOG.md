@@ -5,6 +5,20 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.12.1" />
+
+## v2.12.1
+
+#### 2025-09-02
+
+### Changed
+
+- Updated `broker-client` to [4.218.2](https://github.com/snyk/broker/releases/tag/v4.218.2)
+- Updated `redis` dependencies to [7.4.0-debian-12-r0](https://hub.docker.com/r/bitnami/redis/tags?name=7.4.0-debian-12-r0)
+- Updated `minio` dependencies to [2025.7.23-debian-12-r3](https://hub.docker.com/r/bitnami/minio/tags?name=2025.7.23-debian-12-r3)
+- Snyk services updated
+- Bitnami images are now pulled from the `bitnamilegacy` repository as a consequence of this announcement: <https://github.com/bitnami/charts/issues/35164>
+
 <a id="v2.12.0" />
 
 ## v2.12.0
