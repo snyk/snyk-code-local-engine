@@ -5,6 +5,25 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+<a id="v2.12.2" />
+
+## v2.12.2
+
+#### 2025-10-24
+
+### Changed
+
+- Any `redis` containers now use the official Docker Redis image
+
+### Fixed
+
+- Updated `redis` to `8.2.2` to resolve [SNYK-DEBIAN12-REDIS-1328764](https://security.snyk.io/vuln/SNYK-DEBIAN12-REDIS-13287647)
+
+### Removed
+
+- Removed references to `code-pr-check-service` in documentation
+- Removed used of the `bitnamilegacy` repository for `redis` images
+
 <a id="v2.12.1" />
 
 ## v2.12.1
