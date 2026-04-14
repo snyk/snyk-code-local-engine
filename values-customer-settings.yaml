@@ -111,9 +111,11 @@ global:
 
 ### OPTIONAL: Configure Deeproxy settings for EU/AU Snyk Tenants ###
 ## @section Deeproxy parameters (EU/AU Snyk Tenants only)
-## @param deeproxy.verificationEndpoint Optionally specify the geographically-appropriate endpoint. Set to US tenant by default
+## @param deeproxy.verificationDomain Optionally specify the geographically-appropriate API domain. Set to US tenant by default
+## @param deeproxy.verificationEndpoint Optionally specify the verification endpoint path. Absolute URLs are still accepted for backward compatibility
 deeproxy:
-  verificationEndpoint: "https://api.snyk.io/v1/validate/token/snyk-to-deepcode-proxy-validation"
+  verificationDomain: "https://api.snyk.io"
+  verificationEndpoint: "/v1/validate/token/snyk-to-deepcode-proxy-validation"
 
 ### OPTIONAL: Configure Broker settings for SCM integration ###
 ## @section Broker Client parameters (any SCM flows only)
