@@ -5,15 +5,6 @@ All notable changes to Code Local Engine project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-<a id="v0.0.1" />
-
-## v0.0.1
-
-#### 2026-04-14
-
-### Changed
-
-- Updated container base images to resolve known vulnerabilities.
 
 <a id="v2.12.3" />
 
@@ -21,7 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated `suggest` and `suggest-sticky` image repositories to use `deepcode-suggest_v6-scle`.
+#### 2026-04-14
+
+- Updated container base images to resolve known vulnerabilities.
 
 <a id="v2.12.2" />
 
