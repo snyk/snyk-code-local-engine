@@ -1,1 +1,2 @@
-@snyk/platformeng_access @snyk/code_code-integrations
+* @snyk/platformeng_access-enforcement
+@snyk/platformeng_access @snyk/platformeng_access-enforcement @snyk/code_code-integrations @snyk/engines_code-integrations
