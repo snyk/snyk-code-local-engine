@@ -4,8 +4,8 @@ metadata:
   name: snyk-code-local-engine
   annotations:
     github.com/project-slug: snyk/snyk-code-local-engine
-    github.com/team-slug: snyk/hybrid
+    github.com/team-slug: snyk/codesec_code-integrations
 spec:
   type: documentation
   lifecycle: '-'
-  owner: hybrid
+  owner: codesec_code-integrations
